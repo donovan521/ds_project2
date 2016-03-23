@@ -75,14 +75,41 @@ void binarySearchTree::Insert(Node * n){
   }
 
 void binarySearchTree::PreOrderTraversal(Node * r){
-    cout << r << endl;
+    cout << r->value << " ";
+
+    if (r->leftChild != nullptr){
+        PreOrderTraversal(r->leftChild);
+    }
+
+    if (r->rightChild != nullptr){
+        PreOrderTraversal(r->rightChild);
+    }
 }
 
 void binarySearchTree::PostOrderTraversal(Node * r){
 
+    if (r->leftChild != nullptr){
+        PostOrderTraversal(r->leftChild);
+    }
+
+    if (r->rightChild != nullptr){
+        PostOrderTraversal(r->rightChild);
+    }
+
+    cout << r->value << " ";
+
 }
 
 void binarySearchTree::InOrderTraversal(Node * r){
+    if (r->leftChild != nullptr){
+        InOrderTraversal(r->leftChild);
+    }
+
+    cout << r->value << " ";
+
+    if (r->rightChild != nullptr){
+        InOrderTraversal(r->rightChild);
+    }
 
 }
 

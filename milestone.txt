@@ -1,0 +1,1 @@
+We completed parsing the file, inserting nodes,  all three traversals, and outputting number of nodes/traversals to output.txt
