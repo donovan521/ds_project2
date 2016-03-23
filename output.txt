@@ -1,0 +1,2 @@
+Number of nodes in the bst: 
+Pre-order traversal: 

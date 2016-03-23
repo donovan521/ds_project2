@@ -62,10 +62,11 @@ int main(const int argc, const char * argv []) {
     }
   
 }
-  cout<<mainTree.root->leftChild->value<<endl;
+
+  cout << "Number of nodes in the bst: " << mainTree.numNodes <<endl;
   ofstream myfile;
   myfile.open("output.txt");
-  myfile<<"Number of nodes in the bst: \n";
+  myfile<<"Number of nodes in the bst: " << mainTree.numNodes << "\n";
   myfile<<"Pre-order traversal: \n";  
 
   return EXIT_SUCCESS;
