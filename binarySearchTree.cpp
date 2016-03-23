@@ -16,6 +16,7 @@ binarySearchTree::binarySearchTree(){
 
 binarySearchTree::binarySearchTree(Node * r){
     root = r;
+    numNodes++;
 }
 
 
@@ -57,12 +58,15 @@ void binarySearchTree::Insert(Node * n){
         n->parent = compare;
             if (compare == nullptr) { //empty tree
                 this->root = n;
+                numNodes++;
             }
             else if (n->value < compare->value){
                 compare->leftChild = n;
+                numNodes++;
             }
             else if (n->value > compare->value) {
                 compare->rightChild = n;
+                numNodes++;
             }
             else if(n->value == compare->value){ 
 
