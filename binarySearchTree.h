@@ -37,6 +37,9 @@ class binarySearchTree {
     * Destructor
     */
     //~Node(void);
+
+    //insert function
+    void Insert(Node *);
 };
 
 #endif //_BINARYSEARCHTREE_H

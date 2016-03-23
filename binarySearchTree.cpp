@@ -36,6 +36,37 @@ binarySearchTree::binarySearchTree(const binarySearchTree & m){
       return *this;
 }
 
+
+void binarySearchTree::Insert(Node * n){
+    //    if (this->root = nullptr){
+      //      this->root = n;
+       // }
+        Node * x = this->root;
+        Node * compare = nullptr;
+        while ( x != nullptr) {
+            compare = x;
+            if (n->value < x->value) {
+                x = x->leftChild;
+            }
+            else {
+                x = x->rightChild;
+            }
+
+
+        }
+        n->parent = compare;
+            if (compare == nullptr) { //empty tree
+                this->root = n;
+            }
+            else if (n->value < compare->value){
+                compare->leftChild = n;
+            }
+            else {
+                compare->rightChild = n;
+            }
+
+  }
+
 /**
  * Destructor
  */
