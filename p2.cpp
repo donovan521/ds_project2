@@ -5,14 +5,12 @@
 #include <string>
 #include <sstream>
 #include <fcntl.h>
+#include <fstream>
 #include <unistd.h>
 #include "node.h"
 #include "binarySearchTree.h"
 
-using std::cout;
-using std::endl;
-using std::string;
-using std::stringstream;
+using namespace std;
 
 void nope_out(const string & name) {
   perror(name.c_str());
@@ -26,9 +24,49 @@ int main(const int argc, const char * argv []) {
     cout << "Usage: " << argv[0] << " FILE" << endl;
     exit(0);
   } // if
-binarySearchTree l;
-l.root->leftChild->value;
+  string filename = argv[1];
+  ifstream input(filename);
+  int r =0,flag = 0,nIndex = 1;
+  binarySearchTree mainTree;
+  for(string stringIn; getline(input,stringIn);) { //go thru each line
+    istringstream iss(stringIn);
+    string uinput;
+    while(getline(iss,uinput,' ')){
+      if (flag==1){
+	const int valN = stoi(uinput);
+	if(r==0){
+	  Node * root = new Node(valN);
+	  mainTree.Insert(root);
+	  r++;
+	}
+	else{
+	  Node * treeNode = new Node(valN);
+	  mainTree.Insert(treeNode);
+	  nIndex++;
+	}
+	flag=0;
+      }
+      if(flag==2){
+	//	int valN = stoi(uinput);
+	//Delete node with valN
+	flag=0;
+      }
+      if(uinput=="insert"){
+	flag = 1;
+      }
+      if(uinput=="delete"){
+        flag = 2;
+      }
 
+
+    }
+  
+}
+  cout<<mainTree.root->leftChild->value<<endl;
+  ofstream myfile;
+  myfile.open("output.txt");
+  myfile<<"Number of nodes in the bst: \n";
+  myfile<<"Pre-order traversal: \n";  
 
   return EXIT_SUCCESS;
 } // main
