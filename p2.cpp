@@ -26,7 +26,8 @@ int main(const int argc, const char * argv []) {
     cout << "Usage: " << argv[0] << " FILE" << endl;
     exit(0);
   } // if
-
+binarySearchTree l;
+l.root->leftChild->value;
 
 
   return EXIT_SUCCESS;

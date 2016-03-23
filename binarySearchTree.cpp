@@ -61,8 +61,11 @@ void binarySearchTree::Insert(Node * n){
             else if (n->value < compare->value){
                 compare->leftChild = n;
             }
-            else {
+            else if (n->value > compare->value) {
                 compare->rightChild = n;
+            }
+            else { // n == compare node
+
             }
 
   }
