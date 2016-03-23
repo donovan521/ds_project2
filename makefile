@@ -3,10 +3,10 @@ DEBUG = -g
 CFLAGS = -Wall -c -std=c++11 -O0 -pedantic-errors $(DEBUG)
 LFLAGS = -Wall $(DEBUG)
 
-all: main
+all: p2
 
-main: main.o node.o binarySearchTree.o	
-	$(CC) $(LFLAGS) -o main main.o node.o binarySearchTree.o
+p2: p2.o node.o binarySearchTree.o	
+	$(CC) $(LFLAGS) -o p2 p2.o node.o binarySearchTree.o
 
 binarySearchTree.o: binarySearchTree.cpp	
 	$(CC) $(CFLAGS)	binarySearchTree.cpp
@@ -14,13 +14,13 @@ binarySearchTree.o: binarySearchTree.cpp
 node.o: node.cpp	
 	$(CC) $(CFLAGS)	node.cpp
 
-main.o: main.cpp	
-	$(CC) $(CFLAGS)	main.cpp
+p2.o: p2.cpp	
+	$(CC) $(CFLAGS)	p2.cpp
 
 clean:
-	rm -rf main
+	rm -rf p2
 	rm -rf *.o	
   	
 run:
-	./main input.txt
+	./p2 input.txt
   
