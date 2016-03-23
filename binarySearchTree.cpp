@@ -74,6 +74,18 @@ void binarySearchTree::Insert(Node * n){
 
   }
 
+void binarySearchTree::PreOrderTraversal(){
+
+}
+
+void binarySearchTree::PostOrderTraversal(){
+
+}
+
+void binarySearchTree::InOrderTraversal(){
+
+}
+
 /**
  * Destructor
  */

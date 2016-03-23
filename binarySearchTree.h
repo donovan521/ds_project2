@@ -40,6 +40,13 @@ class binarySearchTree {
 
     //insert function
     void Insert(Node *);
+
+    //traversals
+    void PreOrderTraversal();
+
+    void PostOrderTraversal();
+
+    void InOrderTraversal();
 };
 
 #endif //_BINARYSEARCHTREE_H
