@@ -42,11 +42,11 @@ class binarySearchTree {
     void Insert(Node *);
 
     //traversals
-    void PreOrderTraversal();
+    void PreOrderTraversal(Node *);
 
-    void PostOrderTraversal();
+    void PostOrderTraversal(Node *);
 
-    void InOrderTraversal();
+    void InOrderTraversal(Node *);
 };
 
 #endif //_BINARYSEARCHTREE_H

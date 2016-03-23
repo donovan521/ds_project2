@@ -74,15 +74,15 @@ void binarySearchTree::Insert(Node * n){
 
   }
 
-void binarySearchTree::PreOrderTraversal(){
+void binarySearchTree::PreOrderTraversal(Node * r){
+    cout << r << endl;
+}
+
+void binarySearchTree::PostOrderTraversal(Node * r){
 
 }
 
-void binarySearchTree::PostOrderTraversal(){
-
-}
-
-void binarySearchTree::InOrderTraversal(){
+void binarySearchTree::InOrderTraversal(Node * r){
 
 }
 
