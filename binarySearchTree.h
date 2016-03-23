@@ -13,9 +13,9 @@ class binarySearchTree {
     Node * root;
 
     /**
-    * Default Constructor
+    * "Default" Constructor
     */
-    binarySearchTree() = default;
+    binarySearchTree();
 
 
     /**

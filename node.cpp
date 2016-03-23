@@ -13,6 +13,7 @@ using namespace std;
  */
 Node::Node(const int val){
     value = val;
+    parent = nullptr;
 }
 
 

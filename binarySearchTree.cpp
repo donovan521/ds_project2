@@ -10,9 +10,14 @@ using namespace std;
 /**
  * Constructors
  */
+binarySearchTree::binarySearchTree(){
+    root = nullptr;
+}
+
 binarySearchTree::binarySearchTree(Node * r){
     root = r;
 }
+
 
 /**
  * copy constructor
