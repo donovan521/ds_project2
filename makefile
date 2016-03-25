@@ -22,5 +22,5 @@ clean:
 	rm -rf *.o	
   	
 run:
-	./p2 input.txt
+	./p2 test1.txt
   

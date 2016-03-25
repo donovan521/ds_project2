@@ -65,9 +65,19 @@ int main(const int argc, const char * argv []) {
   
 }
 
-  //cout  << "preorder " << endl;
- // mainTree.PreOrderTraversal(mainTree.root);
- // cout << "Number of nodes in the bst: " << mainTree.numNodes <<endl;
+ //print to console
+  cout << "Number of nodes in the bst: " << mainTree.numNodes <<endl;
+
+  cout << "Pre-order traversal: " << endl;
+  mainTree.PreOrderTraversal(mainTree.root);
+
+  cout << endl << "In-order traversal: " << endl;
+  mainTree.InOrderTraversal(mainTree.root);
+
+  cout << endl << "Post-order traversal: " << endl;
+  mainTree.PostOrderTraversal(mainTree.root);
+  cout << endl;
+//output to output.txt
   ofstream myfile;
   myfile.open("output.txt");
   myfile<<"Number of nodes in the bst: " << mainTree.numNodes << "\n";
