@@ -60,8 +60,8 @@ int main(const int argc, const char * argv []) {
 	flag=0;
       }
       if(flag==2){
-	//	int valN = stoi(uinput);
-	//Delete node with valN
+	int valN = stoi(uinput);
+	mainTree.Delete(mainTree.treeSearch(mainTree.root,valN));
 	flag=0;
       }
       if(uinput=="insert"){
