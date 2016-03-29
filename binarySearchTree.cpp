@@ -37,11 +37,60 @@ binarySearchTree::binarySearchTree(const binarySearchTree & m){
       return *this;
 }
 
+Node * binarySearchTree::treeMinimum(Node * x){
+  while(x->leftChild != nullptr)
+    x = x->leftChild;
+  return x;
+}
+
+void binarySearchTree::Transplant(Node * u , Node * v){
+
+  if(u->parent == nullptr)
+    this->root = v;
+  else if (u == ((u->parent)->leftChild))
+    ((u->parent)->leftChild) = v;
+  else
+    ((u->parent)->rightChild) = v;
+  if (v != nullptr)
+    v->parent = u->parent;
+
+}
+
+Node * binarySearchTree::treeSearch(Node * x, int k){
+  if((x == nullptr) || (k == x->value))
+    return x;
+  if(k < (x->value))
+    return treeSearch(x->leftChild,k);
+  else
+    return treeSearch(x->rightChild,k);
+}
+
+void binarySearchTree::Delete(Node * z){
+  if(z != nullptr){
+  if(z->leftChild == nullptr)
+    Transplant(z,z->rightChild);
+  else if (z->rightChild == nullptr)
+    Transplant(z,z->leftChild);
+  else{ 
+    Node * y = treeMinimum(z->rightChild);
+     if(y->parent != z){
+       Transplant(y,y->rightChild);
+       y->rightChild = z->rightChild;
+       ((y->rightChild)->parent) = y;
+     }
+   Transplant(z,y);
+   y->leftChild = z->leftChild;
+   ((y->leftChild)->parent) = y; 
+      }
+  numNodes--;
+  }
+}
 
 void binarySearchTree::Insert(Node * n){
     //    if (this->root = nullptr){
       //      this->root = n;
        // }
+  if(treeSearch(this->root,n->value)==nullptr){
         Node * x = this->root;
         Node * compare = nullptr;
         while ( x != nullptr) {
@@ -71,7 +120,7 @@ void binarySearchTree::Insert(Node * n){
             else if(n->value == compare->value){ 
 
             }
-
+  }
   }
 
 void binarySearchTree::PreOrderTraversal(Node * r){
@@ -119,4 +168,3 @@ void binarySearchTree::InOrderTraversal(Node * r){
 //Order::~Order(void){
 
 //}
-
