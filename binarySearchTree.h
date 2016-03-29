@@ -37,6 +37,12 @@ class binarySearchTree {
     */
     //~Node(void);
 
+    //Transplant Function
+    void Transplant(Node * u , Node * v);
+    void Delete(Node * z);
+    Node * treeSearch(Node * x, int k);
+    //Minimum Function
+    Node * treeMinimum(Node * x);
     //insert function
     void Insert(Node *);
 
@@ -46,7 +52,6 @@ class binarySearchTree {
     void PostOrderTraversal(Node *);
 
     void InOrderTraversal(Node *);
-
 };
 
 #endif //_BINARYSEARCHTREE_H
