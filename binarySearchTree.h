@@ -8,7 +8,6 @@ using namespace std;
 
 class binarySearchTree {
     public:
-    int height; // or make method?
     int numNodes = 0; // or just make method?
     Node * root;
 
@@ -47,6 +46,7 @@ class binarySearchTree {
     void PostOrderTraversal(Node *);
 
     void InOrderTraversal(Node *);
+
 };
 
 #endif //_BINARYSEARCHTREE_H

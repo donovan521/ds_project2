@@ -33,6 +33,9 @@ class Node {
 	* copy operator
 	*/
 	Node & operator = (const Node &);
+
+    //isleaf
+    bool isLeaf();
 	
 	/**
 	* Destructor

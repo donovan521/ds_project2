@@ -14,6 +14,8 @@ using namespace std;
 Node::Node(const int val){
     value = val;
     parent = nullptr;
+    leftChild = nullptr;
+    rightChild = nullptr;
 }
 
 
@@ -54,3 +56,12 @@ Node::Node(const Node & m){
 
 //}
 
+  bool Node::isLeaf() {
+      if ((this->leftChild == nullptr) && (this->rightChild ==  nullptr)) {
+          return true;
+      }
+
+      return false;
+
+
+  }

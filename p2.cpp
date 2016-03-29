@@ -4,6 +4,7 @@
 #include <cerrno>
 #include <string>
 #include <sstream>
+#include <algorithm>
 #include <fcntl.h>
 #include <fstream>
 #include <sys/types.h>
@@ -19,6 +20,16 @@ void nope_out(const string & name) {
   exit(EXIT_FAILURE);
 } // nope_out
 
+//tree height function
+int Height(Node * n) {
+        if (n == nullptr){
+            return 0;
+        }
+        if (n->isLeaf()) {
+            return 0;
+        }
+        return 1 + max(Height(n->leftChild),Height(n->rightChild));
+}
 
 int main(const int argc, const char * argv []) {
 
@@ -68,6 +79,8 @@ int main(const int argc, const char * argv []) {
  //print to console
   cout << "Number of nodes in the bst: " << mainTree.numNodes <<endl;
 
+  cout << "Height of the bst: " << Height(mainTree.root) <<endl;
+
   cout << "Pre-order traversal: " << endl;
   mainTree.PreOrderTraversal(mainTree.root);
 
@@ -75,47 +88,6 @@ int main(const int argc, const char * argv []) {
   mainTree.InOrderTraversal(mainTree.root);
 
   cout << endl << "Post-order traversal: " << endl;
-  mainTree.PostOrderTraversal(mainTree.root);
-  cout << endl;
-//output to output.txt
-  ofstream myfile;
-  myfile.open("output.txt");
-  myfile<<"Number of nodes in the bst: " << mainTree.numNodes << "\n";
-  myfile<<"Pre-order traversal: \n";  
-  myfile.close();
-
-  const char * oFilename = "output.txt";
-  int fd = open(oFilename, O_WRONLY | O_APPEND);
-
-  if (fd != -1) {
-  /*  cout << "Opened " << filename << "; "
-     << "fd = " << fd << "; "
-     << "error = " << strerror(errno)
-     << endl; */
-  } else {
-    cout << "Could not open " << oFilename /* << "; "
-     << "fd = " << fd  << " (should be -1); "
-     << "error = " << strerror(errno) */
-     << endl;
-    exit(0);
-  } // if
-
-  int nfd = dup2(fd, STDOUT_FILENO);  // redirect standard out
-
-  if (nfd == -1) {
-    cout << "Could not dup2 with " << oFilename << "; "
-     << "nfd = " << nfd  << " (should be -1); "
-     << "error = " << strerror(errno)
-     << endl;
-    exit(0);
-  } // if
-
-  mainTree.PreOrderTraversal(mainTree.root);
-  cout << endl << "In-order traversal: " << endl;
-
-  mainTree.InOrderTraversal(mainTree.root);
-  cout << endl << "Post-order traversal: " << endl;
-
   mainTree.PostOrderTraversal(mainTree.root);
   cout << endl;
 

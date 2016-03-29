@@ -1,7 +1,0 @@
-Number of nodes in the bst: 6
-Pre-order traversal: 
-34 12 10 4 32 56 
-In-order traversal: 
-4 10 12 32 34 56 
-Post-order traversal: 
-4 10 32 12 56 34 
