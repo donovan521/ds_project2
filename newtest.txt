@@ -1,5 +1,0 @@
-insert 60 
-insert 99
-insert 110
-insert 104
-delete 99

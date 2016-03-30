@@ -1,5 +1,0 @@
-insert 8 ++ c
-delete 8 -- c
-insert 8 ++ c
-insert 3 ++ c
-insert 6 ++ c

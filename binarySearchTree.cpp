@@ -76,7 +76,7 @@ void binarySearchTree::Delete(Node * z){
   }
 
   else if(z->leftChild == nullptr && z->rightChild == nullptr) { //is leaf
-          if((z->parent->leftChild != nullptr && z->parent->leftChild->value) == (z->value)) { //node to be deleted is left child
+          if( (z->parent->leftChild != nullptr) && ((z->parent->leftChild->value) == (z->value)) ){ //node to be deleted is left child
               z->parent->leftChild = nullptr;
           }
           else { //leaf is right child
