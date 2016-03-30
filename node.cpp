@@ -60,8 +60,8 @@ Node::Node(const Node & m){
       if ((this->leftChild == nullptr) && (this->rightChild ==  nullptr)) {
           return true;
       }
-
+      else {
       return false;
-
+      }
 
   }

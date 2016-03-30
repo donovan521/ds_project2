@@ -67,11 +67,81 @@ Node * binarySearchTree::treeSearch(Node * x, int k){
 
 void binarySearchTree::Delete(Node * z){
   if(z != nullptr){
-  if(z->leftChild == nullptr)
-    Transplant(z,z->rightChild);
-  else if (z->rightChild == nullptr)
+
+
+  if(z->leftChild == nullptr && z->rightChild == nullptr) {
+      bool isRoot = false;
+      if (z->isLeaf() && z->parent == nullptr) //if is root or leaf
+      {
+          isRoot = true;
+      }
+        if (z->parent != nullptr) { //is a leaf
+            if((z->parent->leftChild->value) == (z->value)) { //node to be deleted is left child
+                z->parent->leftChild = nullptr;
+            }
+            else { //leaf is right child
+                z->parent->rightChild = nullptr;
+            }
+        }
+        z = nullptr;
+        if (isRoot) //if the root is being deleted and it is then only node
+        {
+        this->root = nullptr;
+        }
+        numNodes--;
+  }
+  else if(z->leftChild == nullptr && z->rightChild != nullptr) { //case 1~
+/*
+    if (z->rightChild->leftChild != nullptr) { // replace z with q
+    Node * q = treeMinimum(z->rightChild);
+    cout << "in delete" << q->rightChild << endl;
+    q->parent->leftChild = nullptr;
+    q->rightChild = z->rightChild;
+    //q->leftChild =z->leftChild;
+   // ((q->rightChild)->parent) = q;
+   // q->leftChild = z->leftChild;
+    z->parent->rightChild = q;
+    if (q != nullptr)
+    q->parent = z->parent;
+    }
+    else { //z only has right children
+        cout << "in our case" << endl;
+        //transplant z and z.right
+        z->rightChild->parent = z->parent;
+        z->parent->rightChild = z->rightChild;
+      //  z = nullptr;
+    }
+    */
+
+
+      if (z->rightChild->leftChild != nullptr) {
+      Node * y = treeMinimum(z->rightChild);
+       if(y->parent != z){
+         Transplant(y,y->rightChild);
+         y->rightChild = z->rightChild;
+         ((y->rightChild)->parent) = y;
+       }
+     Transplant(z,y);
+     y->leftChild = z->leftChild;
+     ((y->leftChild)->parent) = y;
+      }
+
+      else { //z only has right children
+          cout << "in our case" << endl;
+          Transplant(z,z->rightChild);
+         // z->parent->rightChild = z->rightChild;
+         // z->rightChild->parent = z->parent;
+         // z->parent = nullptr;
+        //   z->rightChild = nullptr;
+      }
+
+    numNodes--;
+  }
+  else if (z->rightChild == nullptr) {//case 2
     Transplant(z,z->leftChild);
-  else{ 
+  numNodes--;
+  }
+  else{  //case 3 or 4
     Node * y = treeMinimum(z->rightChild);
      if(y->parent != z){
        Transplant(y,y->rightChild);
@@ -81,8 +151,8 @@ void binarySearchTree::Delete(Node * z){
    Transplant(z,y);
    y->leftChild = z->leftChild;
    ((y->leftChild)->parent) = y; 
+   numNodes--;
       }
-  numNodes--;
   }
 }
 

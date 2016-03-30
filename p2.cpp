@@ -25,10 +25,10 @@ int Height(Node * n) {
         if (n == nullptr){
             return 0;
         }
-        if (n->isLeaf()) {
+        if (n->leftChild == nullptr && n->rightChild == nullptr) {
             return 0;
         }
-        return 1 + max(Height(n->leftChild),Height(n->rightChild));
+        return (1 + max(Height(n->leftChild),Height(n->rightChild)));
 }
 
 int main(const int argc, const char * argv []) {
