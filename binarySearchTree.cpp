@@ -90,7 +90,7 @@ void binarySearchTree::Delete(Node * z){
 
     if (z->rightChild->leftChild != nullptr) { // replace z with q
     Node * q = treeMinimum(z->rightChild);
-    cout << "in delete" << q->rightChild << endl;
+    //cout << "in delete" << q->rightChild << endl;
     q->parent->leftChild = nullptr;
     q->rightChild = z->rightChild;
     //q->leftChild =z->leftChild;
