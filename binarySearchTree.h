@@ -36,7 +36,8 @@ class binarySearchTree {
     * Destructor
     */
     //~Node(void);
-
+    void printLevelOrder(int depth);
+    string printLevel(Node * x, int level);
     //Transplant Function
     void Transplant(Node * u , Node * v);
     void Delete(Node * z);
