@@ -36,7 +36,39 @@ binarySearchTree::binarySearchTree(const binarySearchTree & m){
 
       return *this;
 }
+void binarySearchTree::printLevelOrder(int depth){
+  int space = depth*2;
+  for(int i = 1; i <= depth; i++){
+    string nodeLevel = printLevel(this->root, i);
+    for (int i=0;i<space;i++){
+      cout<<" ";
+    }
+    space = space/2;
+    cout<<nodeLevel<<endl;
+  }
+}
 
+string binarySearchTree::printLevel(Node * x, int level){
+  int space = 4;
+  if(x == nullptr)
+    return " ";
+  if(level==1){
+    string s = "";
+    s= s + to_string(x->value);
+    return s;
+  }
+  else if (level > 1){
+    string leftStr = printLevel(x->leftChild, level -1);
+    string rightStr = printLevel(x->rightChild,level -1);
+    for (int i=0;i<space;i++){
+      leftStr= leftStr+" ";
+    }
+    space = space/2;
+    return leftStr +rightStr;
+  }
+  else
+    return " ";
+}
 Node * binarySearchTree::treeMinimum(Node * x){
   while(x->leftChild != nullptr)
     x = x->leftChild;
